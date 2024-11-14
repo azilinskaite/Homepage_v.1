@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -9,10 +11,10 @@
   --clr-off-black: rgb(33, 31, 32);
   --clr-white: rgb(229, 229, 229);
   --clr-light: rgb(255, 253, 240);
-  --clr-accent: rgb(240, 60, 60);
-  --ff-primary: Arial, Helvetica, sans-serif;
-  --fw-regular: 400;
-  --fw-bold: 700;
+  --clr-accent: rgb(34, 34, 239);
+  --ff-primary: "Lexend", sans-serif;
+  --fw-regular: 300;
+  --fw-bold: 500;
   /* font size */
   --fs-small: 1rem;
   --fs-medium: 2rem;
@@ -33,13 +35,12 @@ header {
   align-items: center;
   background-color: var(--clr-black);
   width: 100%;
-  border-bottom: 1px solid var(--clr-white);
   position: fixed;
   top: 0;
   z-index: 1;
   /* fix alignment */
   .small-logo {
-    width: 16rem;
+    width: clamp(12rem, 10.9091rem + 5.8182vw, 16rem);
     height: auto;
   }
   .navigation {
@@ -54,6 +55,7 @@ header {
       li a {
         text-decoration: none;
         color: var(--clr-white);
+        font-size: 1.2rem;
       }
       li:hover {
         rotate: 10deg;
@@ -70,18 +72,13 @@ header {
 }
 
 .selected-work {
-  padding: 2rem;
-  padding-top: 6rem;
+  padding: 7rem 2rem;
   color: var(--clr-black);
   background-color: var(--clr-light);
-  h2 {
-    font-size: var(--fs-heading);
-    margin-bottom: 2rem;
-  }
   .projects-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
-    gap: 2rem;
+    gap: 3rem;
     padding-bottom: 1rem;
     .card {
       text-align: center;
@@ -104,50 +101,52 @@ header {
         }
       }
       .card-content {
-        padding: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 1rem;
         h4 {
           font-size: var(--fs-medium);
+          text-transform: uppercase;
           margin-bottom: 0.6rem;
         }
         p {
-          font-size: 0.8rem;
+          font-size: var(--fs-small);
+          padding: 0 2rem;
         }
       }
     }
   }
 }
 
-.CV-container {
+.about-container {
   width: 100%;
-  padding: 2rem;
-  background-color: var(--clr-light);
-  color: var(--clr-black);
+  padding: 3rem 2rem 4rem;
+  background-color: var(--clr-off-black);
+  color: var(--clr-white);
   h2 {
+    font-size: 3rem;
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
   }
   p {
+    font-size: 1.6rem;
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
   }
-}
-
-.marquee {
-  width: 100%;
-  padding: 0.6rem;
-  background-color: var(--clr-light);
-  color: var(--clr-black);
-  font-weight: var(--fw-bold);
 }
 
 .contact-container {
   padding: 2rem;
-  .contact-details {
+  background-color: var(--clr-accent);
+  color: var(--clr-white);
+  .contact-text {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .contact-text {
-      p {
-      }
-    }
-    .flower-logo {
-      width: 3rem;
+    p {
+      font-size: var(--fs-medium);
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
     }
   }
 }
@@ -158,7 +157,7 @@ footer {
   .footer-navigation {
     padding: 2rem;
     hr {
-      border-top: 1px solid var(--clr-black);
+      border-top: 1px solid var(--clr-off-black);
     }
     .nav-list-footer {
       margin-top: 0.6rem;
@@ -167,7 +166,8 @@ footer {
       gap: 2rem;
       li a {
         text-decoration: none;
-        color: var(--clr-black);
+        color: var(--clr-off-black);
+        font-weight: var(--fw-bold);
       }
     }
   }
@@ -177,12 +177,62 @@ footer {
   }
 }
 
-/* @media(max-width: 600px) {
-    .projects-container {
-        grid-template-columns: 1fr;
+@media screen and (max-width: 600px) {
+  header .navigation {
+    .nav-list {
+      gap: 0.8rem;
+    }
+    .flower-logo {
+      display: none;
+    }
+  }
+  .selected-work {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+  }
+  .projects-container {
+    gap: 1rem;
+  }
+  .about-container {
+    padding: 2rem;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+  }
+  .contact-container {
+    .contact-text {
+      flex-direction: column;
+      p {
+        font-size: 1.6rem;
+      }
+    }
+  }
+  .footer-navigation {
+    hr {
+      display: none;
+    }
+    .nav-list-footer {
+      justify-content: space-between;
+    }
   }
 }
-  @media only screen and (min-width: 600px) {
-    /* For tablets: */
-  
-   
+
+@media screen and (max-width: 1024px) {
+
+    .selected-work {
+        padding: 7rem 2rem 2rem;
+      }
+      .footer-navigation {
+        hr {
+          display: none;
+        }
+        .nav-list-footer {
+          justify-content: space-between;
+        }
+      } 
+  }
+
